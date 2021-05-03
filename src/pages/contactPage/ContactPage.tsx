@@ -37,13 +37,13 @@ const ContactPage: FC = () => {
                     id: 'contact.btn'
                 })}
             </button>
-            {contacts?.length
-                ? contacts.map((contact: Contact) => (
+            {contacts?.length ?
+                contacts.map((contact: Contact) => (
                       <button key={contact.id} type="button" onClick={() => removeContactFromStore(contact.id)}>
                           {contact.id}
                       </button>
-                  ))
-                : null}
+                  )) :
+                null}
             {text}
         </>
     );

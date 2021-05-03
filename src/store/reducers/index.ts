@@ -1,10 +1,14 @@
-import { combineReducers } from 'redux';
-import { ADD_CONTACT, REMOVE_CONTACT, ADD_DEFAULT_TEXT } from '../constants/actionTypes';
-import { IInitialStateFirst, IInitialStateSecond } from '../../types/store/reducers';
-import { AppActions, Contact } from '../../types/store/actions';
+import {combineReducers} from 'redux';
+import {AxiosResponse} from 'axios';
+import {
+ADD_CONTACT, ADD_DEFAULT_TEXT, ADD_SHOWS, REMOVE_CONTACT
+} from '../constants/actionTypes';
+import {IInitialStateFirst, IInitialStateSecond} from '../../types/store/reducers';
+import {AppActions, Contact} from '../../types/store/actions';
 
 const initialStateFirst: IInitialStateFirst = {
-    contacts: []
+    contacts: [],
+    shows: []
 };
 
 const initialStateSecond: IInitialStateSecond = {
@@ -24,9 +28,14 @@ export const firstReducer = (
         case REMOVE_CONTACT:
             return {
                 ...state,
-                contacts: state?.contacts?.length
-                    ? state.contacts.filter((contact: Contact) => contact.id !== action.id)
-                    : []
+                contacts: state?.contacts?.length ?
+                    state.contacts.filter((contact: Contact) => contact.id !== action.id) :
+                    []
+            };
+        case ADD_SHOWS:
+            return {
+                ...state,
+                shows: action.shows as AxiosResponse
             };
         default:
             return state;
