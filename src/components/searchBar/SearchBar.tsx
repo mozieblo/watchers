@@ -10,8 +10,6 @@ const SearchBar: FC = () => {
 
     return (
         <div>
-            <p>test</p>
-            <p>test2</p>
             <input type="text" value={value} onChange={(e: ChangeEvent<HTMLInputElement>) => handleInputChange(e)} />
         </div>
     );
