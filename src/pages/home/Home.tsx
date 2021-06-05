@@ -22,6 +22,7 @@ const Home: FC = () => {
             .then(res => {
                 AddShowsToStore(res);
             })
+            // eslint-disable-next-line no-console
             .catch(err => console.log(err));
     }, []);
 
